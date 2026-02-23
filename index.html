@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mindgen Website</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">Mindgen</div>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#">What We Do</a>
+      <a href="#">Industries We Serve</a>
+      <a href="#">Our Work</a>
+      <a href="#">Thought Leadership</a>
+      <a href="#">Who We Are</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" aria-label="Search">
+        <span class="search-icon"></span>
+      </button>
+      <button class="contact-btn">CONTACT US</button>
+      <button class="menu-btn" aria-label="Open menu" aria-expanded="false">Menu</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-label="Hero section">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1>Innovation.<br />Intelligence.<br />Impact.</h1>
+        <p>
+          We harness Co-Innovation and AI
+          to spark bold ideas, power smarter solutions,
+          and deliver lasting value.
+        </p>
+      </div>
+    </section>
+
+    <section class="clients" aria-label="Client logos">
+      <div class="carousel-wrap">
+        <div class="carousel" id="clientCarousel">
+          <article class="logo-card">
+            <img class="card-bg" src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=900&q=80" alt="Team collaboration background" />
+            <span>iserv.</span>
+          </article>
+          <article class="logo-card">
+            <img class="card-bg" src="https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?auto=format&fit=crop&w=900&q=80" alt="Laptop and workspace background" />
+            <span>COMMERZBANK</span>
+          </article>
+          <article class="logo-card">
+            <img class="card-bg" src="https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=900&q=80" alt="Mobile app cards background" />
+            <span>Wawa</span>
+          </article>
+          <article class="logo-card">
+            <img class="card-bg" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=900&q=80" alt="Business meeting background" />
+            <span>PBS</span>
+          </article>
+          <article class="logo-card">
+            <img class="card-bg" src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80" alt="Office interior background" />
+            <span>Allsteel</span>
+          </article>
+          <article class="logo-card">
+            <img class="card-bg" src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=900&q=80" alt="Payment terminal background" />
+            <span>CHASE</span>
+          </article>
+          <article class="logo-card">
+            <img class="card-bg" src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=900&q=80" alt="Beverage can background" />
+            <span>Coca-Cola</span>
+          </article>
+        </div>
+      </div>
+      <div class="carousel-controls">
+        <button id="togglePlay" class="control-btn" aria-label="Pause carousel">II</button>
+      </div>
+    </section>
+    <section class="industry-showcase" aria-label="Industry showcase">
+      <div class="industry-container">
+        <h2>Empowering Industry Leaders to Navigate the Future with<br />End-to-End Innovation</h2>
+
+        <div class="industry-tabs-shell">
+          <button class="tab-arrow tab-arrow-left" type="button" aria-label="Scroll tabs left">&lt;</button>
+          <div class="industry-tabs" role="tablist" aria-label="Industry categories">
+            <button class="industry-tab active" data-industry="financial" role="tab" aria-selected="true">Financial<br />Services</button>
+            <button class="industry-tab" data-industry="healthcare" role="tab" aria-selected="false">Healthcare</button>
+            <button class="industry-tab" data-industry="telecom" role="tab" aria-selected="false">Telecommunications</button>
+            <button class="industry-tab" data-industry="retail" role="tab" aria-selected="false">Retail</button>
+            <button class="industry-tab" data-industry="restaurant" role="tab" aria-selected="false">Restaurant &amp;<br />Convenience</button>
+            <button class="industry-tab" data-industry="consumer" role="tab" aria-selected="false">Consumer<br />Goods</button>
+            <button class="industry-tab" data-industry="logistics" role="tab" aria-selected="false">Logistics</button>
+            <button class="industry-tab" data-industry="travel" role="tab" aria-selected="false">Travel &amp;<br />Hospitality</button>
+            <button class="industry-tab" data-industry="industrial" role="tab" aria-selected="false">Industrial &amp;<br />Manufacturing</button>
+            <button class="industry-tab" data-industry="media" role="tab" aria-selected="false">Media, Tech, &amp;<br />Entertainment</button>
+          </div>
+          <button class="tab-arrow tab-arrow-right" type="button" aria-label="Scroll tabs right">&gt;</button>
+        </div>
+        <div class="industry-mobile-meta"><span class="pause-mark-mobile">II</span></div>
+
+        <div class="featured-row">
+          <div class="featured-media">
+            <picture>
+              <source id="industryMainSource" media="(max-width: 720px)" srcset="https://images.unsplash.com/photo-1578916171728-46686eac8d58?auto=format&fit=crop&w=1200&q=80" />
+              <img id="industryMainImage" src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1400&q=80" alt="Industry spotlight image" />
+            </picture>
+          </div>
+          <div class="featured-copy">
+            <div class="pause-mark">II</div>
+            <h3 id="industryTitleDesktop" class="featured-title desktop-only">Enabling Seamless Customer Journeys and Unlocking New Revenue Through Modern Tech</h3>
+            <h3 id="industryTitleMobile" class="featured-title mobile-only">Blending Brand, Tech, and Insight to Deepen Consumer Connections</h3>
+            <p id="industryCopyDesktop" class="desktop-only">Partnering with telecom leaders to modernize digital systems, personalize customer touchpoints, and bring innovative services to market faster.</p>
+            <p id="industryCopyMobile" class="mobile-only">Helping brands build deeper consumer relationships, adapt to evolving behaviors, and scale with efficiency.</p>
+            <button class="learn-btn">LEARN MORE</button>
+          </div>
+        </div>
+
+        <div class="insight-grid">
+          <article class="insight-card" data-card-slot="0">
+            <div class="insight-image-wrap">
+              <img src="https://images.unsplash.com/photo-1516387938699-a93567ec168e?auto=format&fit=crop&w=1000&q=80" alt="Professional working on laptop" />
+              <span class="insight-tag">LEADING TELECOM COMPANY</span>
+            </div>
+            <h4>Leading Telecom Company Reimagines Risk Analysis with Generative AI</h4>
+          </article>
+          <article class="insight-card" data-card-slot="1">
+            <div class="insight-image-wrap">
+              <img src="https://images.unsplash.com/photo-1540339832862-474599807836?auto=format&fit=crop&w=1000&q=80" alt="Laptop near airplane window" />
+              <span class="insight-tag">ARTICLE</span>
+            </div>
+            <h4>Taking Telcos to the Sky</h4>
+          </article>
+          <article class="insight-card" data-card-slot="2">
+            <div class="insight-image-wrap">
+              <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=80" alt="Person using phone in city street" />
+              <span class="insight-tag">TELECOM OPERATOR</span>
+            </div>
+            <h4>Resolving Inefficiencies in Call Logging for a leading Telco</h4>
+          </article>
+        </div>
+      </div>
+    </section>
+  
+    <section class="services-results" aria-label="Services that drive real results">
+      <div class="services-container">
+        <h2>Services that Drive Real Results</h2>
+        <p class="services-intro">
+          We bring together a broad set of capabilities across our global integrated teams, harnessing cutting-edge technology, artificial
+          intelligence, and deep industry expertise. With a focus on innovation and strategic execution, we create lasting impact.
+        </p>
+
+        <div class="services-list">
+          <article class="service-item expanded">
+            <img class="service-image" src="https://picsum.photos/id/180/1100/680" alt="Artificial intelligence concept visual" />
+            <div class="service-content">
+              <div class="service-head">
+                <h3>Artificial intelligence</h3>
+                <button class="service-toggle" aria-label="Collapse artificial intelligence service" aria-expanded="true"></button>
+              </div>
+              <p>
+                Leverage the full potential of AI with transformative solutions to improve operations, drive growth and scalable innovation for long-term business agility.
+              </p>
+              <button class="service-btn">LEARN MORE</button>
+              <div class="service-offerings">
+                <h4>Offerings</h4>
+                <ul>
+                  <li>AI Co-Innovation Studio Workshops</li>
+                  <li>AI Strategy, Governance &amp; Adoption</li>
+                  <li>Generative AI Development &amp; Integration</li>
+                  <li>Data Modernization for AI Readiness</li>
+                  <li>AI-Driven Operational Efficiency &amp; Automation</li>
+                  <li>Custom AI Product Engineering &amp; Innovation</li>
+                  <li>Platform AI Optimization &amp; Integration Services</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="service-item">
+            <img class="service-image" src="https://picsum.photos/id/366/1100/680" alt="Design workshop board" />
+            <div class="service-content">
+              <div class="service-head">
+                <h3>Experience Innovation &amp; Design</h3>
+                <button class="service-toggle" aria-label="Expand experience innovation and design service" aria-expanded="false"></button>
+              </div>
+              <p>
+                Elevate your digital presence by creating compelling, results-driven experiences and products that deeply engage customers with your brand.
+              </p>
+              <button class="service-btn">LEARN MORE</button>
+              <div class="service-offerings">
+                <h4>Offerings</h4>
+                <ul>
+                  <li>Customer Journey Strategy</li>
+                  <li>UX Research &amp; Service Design</li>
+                  <li>Product Design Systems</li>
+                  <li>Conversion Optimization Programs</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="service-item">
+            <img class="service-image" src="https://picsum.photos/id/0/1100/680" alt="Developer working on platform engineering" />
+            <div class="service-content">
+              <div class="service-head">
+                <h3>Digital Product &amp; Platform Engineering</h3>
+                <button class="service-toggle" aria-label="Expand digital product and platform engineering service" aria-expanded="false"></button>
+              </div>
+              <p>
+                Modernize legacy applications and optimize platforms to stay competitive and enhance user engagement.
+              </p>
+              <button class="service-btn">LEARN MORE</button>
+              <div class="service-offerings">
+                <h4>Offerings</h4>
+                <ul>
+                  <li>Cloud-native Product Engineering</li>
+                  <li>API &amp; Microservices Architecture</li>
+                  <li>Quality Engineering Automation</li>
+                  <li>Performance &amp; Scalability Optimization</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="service-item">
+            <img class="service-image" src="https://picsum.photos/id/48/1100/680" alt="Business digital transformation" />
+            <div class="service-content">
+              <div class="service-head">
+                <h3>Enterprise Digital Transformation</h3>
+                <button class="service-toggle" aria-label="Expand enterprise digital transformation service" aria-expanded="false"></button>
+              </div>
+              <p>
+                Empower your organization with our collaborative approach to digital transformation, optimizing processes, change management, and driving business growth.
+              </p>
+              <button class="service-btn">LEARN MORE</button>
+              <div class="service-offerings">
+                <h4>Offerings</h4>
+                <ul>
+                  <li>Digital Roadmap Development</li>
+                  <li>Operating Model Transformation</li>
+                  <li>Enterprise Change Enablement</li>
+                  <li>Transformation Program Governance</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="service-item">
+            <img class="service-image" src="https://picsum.photos/id/119/1100/680" alt="Data and analytics dashboard" />
+            <div class="service-content">
+              <div class="service-head">
+                <h3>Data &amp; Analytics</h3>
+                <button class="service-toggle" aria-label="Expand data and analytics service" aria-expanded="false"></button>
+              </div>
+              <p>
+                Discover how our expertise in data and analysis can transform your business through enhanced data visibility to drive success.
+              </p>
+              <button class="service-btn">LEARN MORE</button>
+              <div class="service-offerings">
+                <h4>Offerings</h4>
+                <ul>
+                  <li>Data Strategy &amp; Governance</li>
+                  <li>Modern Data Platform Engineering</li>
+                  <li>Business Intelligence &amp; Visualization</li>
+                  <li>Advanced Analytics &amp; Forecasting</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="service-item">
+            <img class="service-image" src="https://picsum.photos/id/1011/1100/680" alt="Cloud infrastructure engineering" />
+            <div class="service-content">
+              <div class="service-head">
+                <h3>Cloud Enablement &amp; Modernization</h3>
+                <button class="service-toggle" aria-label="Expand cloud enablement and modernization service" aria-expanded="false"></button>
+              </div>
+              <p>
+                Unlock the full potential of your infrastructure with our comprehensive cloud services, designed to enhance scale, resilience, and cost efficiency.
+              </p>
+              <button class="service-btn">LEARN MORE</button>
+              <div class="service-offerings">
+                <h4>Offerings</h4>
+                <ul>
+                  <li>Cloud Migration Strategy</li>
+                  <li>Platform Operations &amp; SRE</li>
+                  <li>FinOps &amp; Cost Optimization</li>
+                  <li>Security &amp; Compliance Automation</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="service-item">
+            <img class="service-image" src="https://picsum.photos/id/64/1100/680" alt="Marketing collaboration session" />
+            <div class="service-content">
+              <div class="service-head">
+                <h3>Marketing Activation &amp; Loyalty</h3>
+                <button class="service-toggle" aria-label="Expand marketing activation and loyalty service" aria-expanded="false"></button>
+              </div>
+              <p>
+                Engage individuals at every stage of their journey with our comprehensive, data-driven marketing strategies.
+              </p>
+              <button class="service-btn">LEARN MORE</button>
+              <div class="service-offerings">
+                <h4>Offerings</h4>
+                <ul>
+                  <li>Audience &amp; Segmentation Strategy</li>
+                  <li>Campaign Orchestration &amp; Automation</li>
+                  <li>Loyalty Program Design</li>
+                  <li>Attribution &amp; Measurement</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="service-item">
+            <img class="service-image" src="https://picsum.photos/id/1060/1100/680" alt="Digital commerce checkout experience" />
+            <div class="service-content">
+              <div class="service-head">
+                <h3>Digital Commerce</h3>
+                <button class="service-toggle" aria-label="Expand digital commerce service" aria-expanded="false"></button>
+              </div>
+              <p>
+                Leverage our tailored digital commerce solutions to enhance customer satisfaction, streamline operations, and maximize conversions for your business.
+              </p>
+              <button class="service-btn">LEARN MORE</button>
+              <div class="service-offerings">
+                <h4>Offerings</h4>
+                <ul>
+                  <li>Composable Commerce Architecture</li>
+                  <li>Checkout &amp; Conversion Optimization</li>
+                  <li>Marketplace Integration Services</li>
+                  <li>Merchandising &amp; Personalization</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
