@@ -29,21 +29,26 @@ body {
   background: var(--bg-base);
 }
 
-.site-header {
+.site-header-wrap {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 40;
+}
+
+.site-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 18px 22px;
-  z-index: 20;
+  padding: 16px 18px 14px;
+  background: rgba(50, 29, 119, 0.94);
+  backdrop-filter: blur(4px);
 }
 
 .brand {
-  font-size: 30px;
-  font-weight: 800;
+  font-size: 17px;
+  font-weight: 700;
   letter-spacing: 0.2px;
   white-space: nowrap;
 }
@@ -51,18 +56,20 @@ body {
 .main-nav {
   display: flex;
   align-items: center;
-  gap: 36px;
+  gap: 38px;
 }
 
 .main-nav a {
   color: var(--text);
   text-decoration: none;
-  font-size: 17px;
+  font-size: 14px;
   font-weight: 500;
   opacity: 0.94;
 }
 
-.main-nav a:hover {
+.main-nav a:hover,
+.main-nav a.is-active {
+  color: #83e9ff;
   opacity: 1;
 }
 
@@ -73,18 +80,18 @@ body {
 }
 
 .icon-btn {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.55);
+  width: 28px;
+  height: 28px;
+  border: none;
   background: transparent;
   cursor: pointer;
+  padding: 0;
 }
 
 .search-icon {
   display: inline-block;
-  width: 13px;
-  height: 13px;
+  width: 14px;
+  height: 14px;
   border: 2px solid #fff;
   border-radius: 50%;
   position: relative;
@@ -92,7 +99,7 @@ body {
 
 .search-icon::after {
   content: "";
-  width: 7px;
+  width: 8px;
   height: 2px;
   background: #fff;
   position: absolute;
@@ -102,11 +109,11 @@ body {
 }
 
 .contact-btn {
-  border: 2px solid rgba(255, 255, 255, 0.75);
-  background: rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  background: transparent;
   color: #fff;
-  padding: 10px 20px;
-  font-size: 14px;
+  padding: 9px 22px;
+  font-size: 12px;
   font-weight: 700;
   border-radius: 999px;
   letter-spacing: 0.4px;
@@ -121,6 +128,185 @@ body {
   padding: 8px 12px;
   border-radius: 8px;
   font-weight: 700;
+}
+
+.mega-nav {
+  display: none;
+  background:
+    radial-gradient(circle at 12% 35%, rgba(140, 115, 228, 0.22), transparent 34%),
+    radial-gradient(circle at 82% 52%, rgba(132, 104, 220, 0.2), transparent 37%),
+    rgba(48, 27, 116, 0.74);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  -webkit-backdrop-filter: blur(18px) saturate(135%);
+  backdrop-filter: blur(18px) saturate(135%);
+}
+
+.mega-nav.is-open {
+  display: block;
+}
+
+.mega-nav-inner {
+  width: min(96%, 1200px);
+  margin: 0 auto;
+  padding: 28px 0 38px;
+  display: grid;
+  grid-template-columns: 1.05fr 1fr 1fr;
+  gap: 40px;
+}
+
+.mega-col h3 {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.mega-col p {
+  margin: 8px 0 20px;
+  color: #f0eaff;
+  font-size: 14px;
+  line-height: 1.33;
+  max-width: 500px;
+}
+
+.mega-feature {
+  margin-bottom: 8px;
+}
+
+.mega-feature-title {
+  color: #ffffff;
+  position: relative;
+  display: inline-block;
+  transition: color 0.2s ease, transform 0.2s ease;
+  transform: translateX(0);
+}
+
+.mega-feature-arrow {
+  position: absolute;
+  left: -22px;
+  top: 50%;
+  font-size: 28px;
+  line-height: 1;
+  opacity: 0;
+  transform: translate(-6px, -50%);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.mega-feature:hover .mega-feature-title {
+  color: #85ebff;
+  transform: translateX(16px);
+}
+
+.mega-feature:hover .mega-feature-arrow {
+  opacity: 1;
+  transform: translate(0, -50%);
+}
+
+.mega-col ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mega-col li + li {
+  margin-top: 12px;
+}
+
+.mega-col li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.mega-col li a:hover {
+  color: #8cecff;
+}
+
+.industries-mega-inner {
+  grid-template-columns: 1.05fr 1fr 1fr;
+}
+
+.industries-mega-inner .mega-col h3 {
+  font-size: 30px;
+}
+
+.industries-mega-inner .mega-col p {
+  margin-top: 8px;
+}
+
+.industries-link {
+  position: relative;
+  display: inline-block;
+  transform: translateX(0);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.industries-link::before {
+  content: "›";
+  position: absolute;
+  left: -16px;
+  top: 50%;
+  transform: translate(-6px, -50%);
+  opacity: 0;
+  color: #85ebff;
+  font-size: 18px;
+  line-height: 1;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.industries-link:hover {
+  color: #85ebff;
+  transform: translateX(14px);
+}
+
+.industries-link:hover::before {
+  opacity: 1;
+  transform: translate(0, -50%);
+}
+
+.ourwork-mega-inner {
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 34px;
+}
+
+.work-card {
+  background: #cbc9d1;
+  overflow: hidden;
+}
+
+.work-image-wrap {
+  position: relative;
+  height: 214px;
+}
+
+.work-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.work-tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #ffffff;
+  color: #ad2ba9;
+  font-size: 13px;
+  letter-spacing: 0.8px;
+  font-weight: 700;
+  padding: 6px 10px 5px;
+}
+
+.work-card h4 {
+  margin: 0;
+  padding: 16px 24px 18px;
+  color: #30237f;
+  font-size: 17px;
+  line-height: 1.25;
+  font-weight: 500;
 }
 
 .hero {
@@ -1124,15 +1310,33 @@ body {
 
 @media (max-width: 1400px) {
   .main-nav {
-    gap: 20px;
+    gap: 28px;
   }
 
   .main-nav a {
-    font-size: 15px;
+    font-size: 13px;
   }
 
   .brand {
-    font-size: 26px;
+    font-size: 16px;
+  }
+
+  .mega-nav-inner {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 28px;
+    padding: 24px 0 30px;
+  }
+
+  .mega-col h3 {
+    font-size: 22px;
+  }
+
+  .mega-col p {
+    font-size: 13px;
+  }
+
+  .mega-col li a {
+    font-size: 14px;
   }
 
   .industry-showcase h2 {
@@ -1220,6 +1424,10 @@ body {
 @media (max-width: 1080px) {
   .main-nav {
     display: none;
+  }
+
+  .mega-nav {
+    display: none !important;
   }
 
   .menu-btn {
@@ -1475,11 +1683,11 @@ body {
 
 @media (max-width: 720px) {
   .site-header {
-    padding: 16px;
+    padding: 14px 16px;
   }
 
   .brand {
-    font-size: 20px;
+    font-size: 18px;
     max-width: 45vw;
     overflow: hidden;
     text-overflow: ellipsis;

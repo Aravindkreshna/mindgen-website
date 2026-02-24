@@ -2,6 +2,9 @@ const carousel = document.getElementById("clientCarousel");
 const toggleButton = document.getElementById("togglePlay");
 const menuButton = document.querySelector(".menu-btn");
 const nav = document.querySelector(".main-nav");
+const mainNavLinks = Array.from(document.querySelectorAll(".main-nav a"));
+const megaNavPanels = Array.from(document.querySelectorAll(".mega-nav"));
+const siteHeaderWrap = document.querySelector(".site-header-wrap");
 const industryTabs = document.querySelectorAll(".industry-tab");
 const industryTabsRow = document.querySelector(".industry-tabs");
 const tabArrowLeft = document.querySelector(".tab-arrow-left");
@@ -357,6 +360,55 @@ if (menuButton && nav) {
       nav.removeAttribute("style");
     }
   });
+}
+
+if (mainNavLinks.length && megaNavPanels.length && siteHeaderWrap) {
+  let megaCloseTimer;
+
+  const closeAllMegaPanels = () => {
+    megaNavPanels.forEach((panel) => panel.classList.remove("is-open"));
+    mainNavLinks.forEach((item) => item.classList.remove("is-active"));
+  };
+
+  const clearMegaTimer = () => {
+    if (megaCloseTimer) {
+      clearTimeout(megaCloseTimer);
+      megaCloseTimer = null;
+    }
+  };
+
+  const openMegaForLink = (link) => {
+    if (window.innerWidth <= 1080) return;
+    if (!link.classList.contains("has-mega")) return;
+
+    clearMegaTimer();
+    closeAllMegaPanels();
+    link.classList.add("is-active");
+    const panelKey = link.dataset.megaTarget;
+    const targetPanel = megaNavPanels.find((panel) => panel.dataset.megaPanel === panelKey);
+    if (targetPanel) targetPanel.classList.add("is-open");
+  };
+
+  const scheduleMegaClose = () => {
+    if (window.innerWidth <= 1080) return;
+    clearMegaTimer();
+    megaCloseTimer = setTimeout(() => {
+      closeAllMegaPanels();
+    }, 90);
+  };
+
+  mainNavLinks.forEach((link) => {
+    link.addEventListener("mouseenter", () => openMegaForLink(link));
+    link.addEventListener("focus", () => openMegaForLink(link));
+    link.addEventListener("click", (event) => {
+      if (link.classList.contains("has-mega")) {
+        event.preventDefault();
+      }
+    });
+  });
+
+  siteHeaderWrap.addEventListener("mouseenter", clearMegaTimer);
+  siteHeaderWrap.addEventListener("mouseleave", scheduleMegaClose);
 }
 
 const initIndustryByViewport = () => {
