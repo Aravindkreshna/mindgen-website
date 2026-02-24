@@ -14,15 +14,20 @@ const industryCopyDesktop = document.getElementById("industryCopyDesktop");
 const industryCopyMobile = document.getElementById("industryCopyMobile");
 const insightCards = Array.from(document.querySelectorAll(".insight-card"));
 const serviceItems = Array.from(document.querySelectorAll(".service-item"));
+const innovateSection = document.querySelector(".innovate-contact");
+const innovateToggle = document.querySelector(".innovate-toggle");
+const innovateBody = document.getElementById("innovateBody");
 
-const cards = Array.from(carousel.children);
-const cloneCards = cards.map((card) => card.cloneNode(true));
-cloneCards.forEach((card) => carousel.appendChild(card));
+const cards = carousel ? Array.from(carousel.children) : [];
+if (carousel && cards.length > 0) {
+  const cloneCards = cards.map((card) => card.cloneNode(true));
+  cloneCards.forEach((card) => carousel.appendChild(card));
+}
 
 let isPlaying = true;
 let speed = 0.6;
 let progress = 0;
-let cardWidth = cards[0].getBoundingClientRect().width + 16;
+let cardWidth = cards.length > 0 ? cards[0].getBoundingClientRect().width + 16 : 0;
 let loopWidth = cardWidth * cards.length;
 let industryCycleProgress = 0;
 let lastIndustryTick = performance.now();
@@ -192,11 +197,13 @@ const industryContent = {
 };
 
 const updateMetrics = () => {
+  if (!cards.length) return;
   cardWidth = cards[0].getBoundingClientRect().width + 16;
   loopWidth = cardWidth * cards.length;
 };
 
 const fitLogoText = () => {
+  if (!carousel) return;
   const logoTexts = carousel.querySelectorAll(".logo-card span");
   logoTexts.forEach((span) => {
     const card = span.closest(".logo-card");
@@ -304,7 +311,7 @@ const updateIndustryCycle = (now) => {
 };
 
 const animate = (now = performance.now()) => {
-  if (isPlaying) {
+  if (isPlaying && carousel && loopWidth > 0) {
     progress += speed;
     if (progress >= loopWidth) {
       progress = 0;
@@ -317,37 +324,43 @@ const animate = (now = performance.now()) => {
 
 const togglePlay = () => {
   isPlaying = !isPlaying;
+  if (!toggleButton) return;
   toggleButton.textContent = isPlaying ? "II" : ">";
   toggleButton.setAttribute("aria-label", isPlaying ? "Pause carousel" : "Play carousel");
 };
 
-toggleButton.addEventListener("click", togglePlay);
+if (toggleButton) {
+  toggleButton.addEventListener("click", togglePlay);
+}
 
 window.addEventListener("resize", updateMetrics);
 window.addEventListener("resize", fitLogoText);
 
-menuButton.addEventListener("click", () => {
-  const expanded = menuButton.getAttribute("aria-expanded") === "true";
-  menuButton.setAttribute("aria-expanded", String(!expanded));
+if (menuButton && nav) {
+  menuButton.addEventListener("click", () => {
+    const expanded = menuButton.getAttribute("aria-expanded") === "true";
+    menuButton.setAttribute("aria-expanded", String(!expanded));
 
-  if (!expanded) {
-    nav.style.display = "flex";
-    nav.style.position = "absolute";
-    nav.style.top = "68px";
-    nav.style.right = "16px";
-    nav.style.flexDirection = "column";
-    nav.style.alignItems = "flex-start";
-    nav.style.background = "rgba(29, 13, 86, 0.95)";
-    nav.style.padding = "14px";
-    nav.style.border = "1px solid rgba(255,255,255,0.22)";
-    nav.style.borderRadius = "8px";
-    nav.style.gap = "12px";
-  } else {
-    nav.removeAttribute("style");
-  }
-});
+    if (!expanded) {
+      nav.style.display = "flex";
+      nav.style.position = "absolute";
+      nav.style.top = "68px";
+      nav.style.right = "16px";
+      nav.style.flexDirection = "column";
+      nav.style.alignItems = "flex-start";
+      nav.style.background = "rgba(29, 13, 86, 0.95)";
+      nav.style.padding = "14px";
+      nav.style.border = "1px solid rgba(255,255,255,0.22)";
+      nav.style.borderRadius = "8px";
+      nav.style.gap = "12px";
+    } else {
+      nav.removeAttribute("style");
+    }
+  });
+}
 
 const initIndustryByViewport = () => {
+  if (!industryTabs.length) return;
   const defaultKey = window.innerWidth <= 720 ? "consumer" : "financial";
   const defaultTab = document.querySelector(`.industry-tab[data-industry="${defaultKey}"]`) || industryTabs[0];
   activateIndustryTab(defaultTab);
@@ -393,6 +406,15 @@ serviceItems.forEach((item) => {
     }
   });
 });
+
+if (innovateSection && innovateToggle && innovateBody) {
+  innovateToggle.addEventListener("click", () => {
+    const isCollapsed = innovateSection.classList.toggle("is-collapsed");
+    const isExpanded = !isCollapsed;
+    innovateToggle.setAttribute("aria-expanded", String(isExpanded));
+    innovateBody.hidden = !isExpanded;
+  });
+}
 
 updateMetrics();
 fitLogoText();
