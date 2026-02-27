@@ -1,12 +1,14 @@
 const carousel = document.getElementById("clientCarousel");
 const toggleButton = document.getElementById("togglePlay");
 const menuButton = document.querySelector(".menu-btn");
+const themeToggleButton = document.getElementById("themeToggle");
 const nav = document.querySelector(".main-nav");
 const mainNavLinks = Array.from(document.querySelectorAll(".main-nav a"));
 const megaNavPanels = Array.from(document.querySelectorAll(".mega-nav"));
 const siteHeaderWrap = document.querySelector(".site-header-wrap");
 const industryTabs = document.querySelectorAll(".industry-tab");
 const industryTabsRow = document.querySelector(".industry-tabs");
+const industrySection = document.getElementById("industries");
 const tabArrowLeft = document.querySelector(".tab-arrow-left");
 const tabArrowRight = document.querySelector(".tab-arrow-right");
 const industryMainImage = document.getElementById("industryMainImage");
@@ -20,6 +22,8 @@ const serviceItems = Array.from(document.querySelectorAll(".service-item"));
 const innovateSection = document.querySelector(".innovate-contact");
 const innovateToggle = document.querySelector(".innovate-toggle");
 const innovateBody = document.getElementById("innovateBody");
+const themeLogos = Array.from(document.querySelectorAll(".brand-logo, .footer-logo"));
+const THEME_STORAGE_KEY = "mindgen-theme";
 
 const cards = carousel ? Array.from(carousel.children) : [];
 if (carousel && cards.length > 0) {
@@ -287,14 +291,22 @@ const activateNextIndustryTab = () => {
   const currentIndex = tabs.findIndex((tab) => tab.classList.contains("active"));
   const nextIndex = currentIndex >= 0 ? (currentIndex + 1) % tabs.length : 0;
   activateIndustryTab(tabs[nextIndex]);
-  if (window.innerWidth <= 720) {
-    tabs[nextIndex].scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
-  }
+};
+
+const isIndustrySectionInViewport = () => {
+  if (!industrySection) return false;
+  const rect = industrySection.getBoundingClientRect();
+  const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+  return rect.top < viewportHeight && rect.bottom > 0;
 };
 
 const updateIndustryCycle = (now) => {
   const activeTab = document.querySelector(".industry-tab.active");
   if (!activeTab) return;
+  if (!isIndustrySectionInViewport()) {
+    lastIndustryTick = now;
+    return;
+  }
   if (document.hidden) {
     lastIndustryTick = now;
     return;
@@ -332,8 +344,60 @@ const togglePlay = () => {
   toggleButton.setAttribute("aria-label", isPlaying ? "Pause carousel" : "Play carousel");
 };
 
+const updateThemeToggleUi = (isDark) => {
+  if (!themeToggleButton) return;
+  themeToggleButton.textContent = isDark ? "Light" : "Dark";
+  themeToggleButton.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
+  themeToggleButton.setAttribute("aria-pressed", String(isDark));
+};
+
+const updateThemeLogos = (isDark) => {
+  if (!themeLogos.length) return;
+  themeLogos.forEach((logo) => {
+    const lightLogo = logo.dataset.lightLogo || logo.getAttribute("src");
+    const darkLogo = logo.dataset.darkLogo || lightLogo;
+    logo.setAttribute("src", isDark ? darkLogo : lightLogo);
+  });
+};
+
+const applyTheme = (theme) => {
+  const isDark = theme === "dark";
+  document.body.classList.toggle("theme-dark", isDark);
+  updateThemeLogos(isDark);
+  updateThemeToggleUi(isDark);
+};
+
+const initTheme = () => {
+  let savedTheme = null;
+  try {
+    savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
+  } catch (_) {
+    savedTheme = null;
+  }
+
+  if (savedTheme === "dark" || savedTheme === "light") {
+    applyTheme(savedTheme);
+    return;
+  }
+
+  applyTheme("light");
+};
+
 if (toggleButton) {
   toggleButton.addEventListener("click", togglePlay);
+}
+
+if (themeToggleButton) {
+  themeToggleButton.addEventListener("click", () => {
+    const isDark = document.body.classList.contains("theme-dark");
+    const nextTheme = isDark ? "light" : "dark";
+    applyTheme(nextTheme);
+    try {
+      localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
+    } catch (_) {
+      // Ignore storage failures and keep in-memory toggle behavior.
+    }
+  });
 }
 
 window.addEventListener("resize", updateMetrics);
@@ -345,15 +409,16 @@ if (menuButton && nav) {
     menuButton.setAttribute("aria-expanded", String(!expanded));
 
     if (!expanded) {
+      const isDark = document.body.classList.contains("theme-dark");
       nav.style.display = "flex";
       nav.style.position = "absolute";
       nav.style.top = "68px";
       nav.style.right = "16px";
       nav.style.flexDirection = "column";
       nav.style.alignItems = "flex-start";
-      nav.style.background = "rgba(29, 13, 86, 0.95)";
+      nav.style.background = isDark ? "rgba(12, 30, 58, 0.95)" : "rgba(250, 253, 255, 0.97)";
       nav.style.padding = "14px";
-      nav.style.border = "1px solid rgba(255,255,255,0.22)";
+      nav.style.border = isDark ? "1px solid rgba(255,255,255,0.22)" : "1px solid rgba(24,37,71,0.22)";
       nav.style.borderRadius = "8px";
       nav.style.gap = "12px";
     } else {
@@ -434,7 +499,7 @@ if (industryTabsRow && tabArrowLeft && tabArrowRight) {
 industryTabs.forEach((tab) => {
   tab.addEventListener("click", () => {
     activateIndustryTab(tab);
-    if (window.innerWidth <= 720) {
+    if (window.innerWidth <= 720 && isIndustrySectionInViewport()) {
       tab.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
     }
   });
@@ -469,6 +534,7 @@ if (innovateSection && innovateToggle && innovateBody) {
 }
 
 updateMetrics();
+initTheme();
 fitLogoText();
 initIndustryByViewport();
 animate();

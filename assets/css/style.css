@@ -1,15 +1,15 @@
 :root {
-  --bg-base: #0e1f3d;
-  --bg-deep: #09152b;
-  --theme-overlay-rgb: 7, 24, 52;
+  --bg-base: #f4f8fd;
+  --bg-deep: #eaf1fb;
+  --theme-overlay-rgb: 255, 255, 255;
   --brand-navy: #182547;
   --brand-blue: #39a7e6;
   --brand-red: #c63f36;
   --violet: #1c4f95;
   --violet-soft: #1a3d73;
-  --text: #ffffff;
-  --muted: #d6e1f2;
-  --card: #17335f;
+  --text: #182547;
+  --muted: #3a5279;
+  --card: #dce7f6;
   --section-py-desktop: 84px;
   --section-py-tablet: 64px;
   --section-py-mobile: 52px;
@@ -46,8 +46,9 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 16px 18px 14px;
-  background: rgba(12, 30, 58, 0.94);
+  background: rgba(250, 253, 255, 0.94);
   backdrop-filter: blur(4px);
+  border-bottom: 1px solid rgba(24, 37, 71, 0.14);
 }
 
 .brand {
@@ -93,6 +94,18 @@ body {
   gap: 14px;
 }
 
+.theme-toggle-btn {
+  border: 1px solid rgba(24, 37, 71, 0.35);
+  background: #ffffff;
+  color: #182547;
+  padding: 7px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 999px;
+  cursor: pointer;
+  letter-spacing: 0.2px;
+}
+
 .icon-btn {
   width: 28px;
   height: 28px;
@@ -123,9 +136,9 @@ body {
 }
 
 .contact-btn {
-  border: 2px solid rgba(255, 255, 255, 0.9);
+  border: 2px solid rgba(24, 37, 71, 0.9);
   background: transparent;
-  color: #fff;
+  color: #182547;
   padding: 9px 22px;
   font-size: 12px;
   font-weight: 700;
@@ -136,9 +149,9 @@ body {
 
 .menu-btn {
   display: none;
-  border: 1px solid rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(24, 37, 71, 0.45);
   background: transparent;
-  color: #fff;
+  color: #182547;
   padding: 8px 12px;
   border-radius: 8px;
   font-weight: 700;
@@ -366,7 +379,13 @@ body {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: rgba(var(--theme-overlay-rgb), 0.5);
+  background: linear-gradient(
+    90deg,
+    rgba(var(--theme-overlay-rgb), 0.76) 0%,
+    rgba(var(--theme-overlay-rgb), 0.62) 32%,
+    rgba(var(--theme-overlay-rgb), 0.34) 58%,
+    rgba(var(--theme-overlay-rgb), 0.08) 100%
+  );
 }
 
 .hero-content {
@@ -1270,9 +1289,10 @@ body {
 }
 
 .footer-brandline {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
+  width: max-content;
   gap: 10px;
   font-size: 18px;
   line-height: 1.2;
@@ -1284,11 +1304,13 @@ body {
 }
 
 .footer-logo {
-  width: 220px;
-  height: 56px;
+  width: 250px;
+  height: 64px;
   object-fit: contain;
-  object-position: left center;
+  object-position: center center;
   border-radius: 4px;
+  display: block;
+  margin: 0 auto;
 }
 
 .footer-brand-separator {
@@ -1322,6 +1344,11 @@ body {
   border-color: var(--brand-blue);
   background: var(--brand-blue);
   color: #ffffff;
+}
+
+.theme-toggle-btn:hover {
+  border-color: var(--brand-blue);
+  color: var(--brand-blue);
 }
 
 .innovate-contact.is-collapsed {
@@ -1715,8 +1742,8 @@ body {
   }
 
   .footer-logo {
-    width: 180px;
-    height: 48px;
+    width: 210px;
+    height: 54px;
   }
 
   .footer-legal {
@@ -2143,11 +2170,13 @@ body {
 
   .footer-brandline {
     font-size: 13px;
+    width: 80%;
+    max-width: 360px;
   }
 
   .footer-logo {
-    width: 150px;
-    height: 40px;
+    width: 100%;
+    height: auto;
   }
 
   .footer-legal {
@@ -2160,5 +2189,227 @@ body {
   }
 }
 
+/* Light theme overrides */
+.mega-nav {
+  background:
+    radial-gradient(circle at 12% 35%, rgba(57, 167, 230, 0.1), transparent 34%),
+    radial-gradient(circle at 82% 52%, rgba(198, 63, 54, 0.08), transparent 37%),
+    rgba(250, 253, 255, 0.96);
+  border-top: 1px solid rgba(24, 37, 71, 0.12);
+}
 
+.mega-col p,
+.featured-copy p,
+.services-intro,
+.partners-intro,
+.partner-card p,
+.service-content p,
+.service-offerings li,
+.consent-copy,
+.footer-phone,
+.footer-legal {
+  color: #3a5279;
+}
+
+.mega-feature-title,
+.mega-col h3,
+.mega-col li a,
+.featured-copy h3,
+.insight-card h4,
+.services-results h2,
+.service-head h3,
+.service-offerings h4,
+.partners h2,
+.partner-logo,
+.innovate-toggle,
+.innovate-testimonial > p,
+.author-block h3,
+.author-brand,
+.footer-links a,
+.footer-regions a,
+.footer-legal a,
+.footer-brandline {
+  color: #182547;
+}
+
+.clients,
+.services-results,
+.innovate-contact,
+.footer-top {
+  background: #f7fafe;
+}
+
+.industry-showcase,
+.partners,
+.footer-bottom {
+  background: #edf3fb;
+}
+
+.industry-tabs,
+.services-list,
+.service-item,
+.footer-divider {
+  border-color: rgba(24, 37, 71, 0.18);
+}
+
+.industry-tab {
+  color: rgba(24, 37, 71, 0.62);
+}
+
+.industry-tab.active {
+  color: #182547;
+}
+
+.industry-tab::after {
+  background: #1c4f95;
+}
+
+.search-icon {
+  border-color: #182547;
+}
+
+.search-icon::after {
+  background: #182547;
+}
+
+.footer-social a {
+  color: #3a5279;
+}
+
+.contact-btn,
+.learn-btn,
+.service-btn,
+.partners-btn,
+.innovate-submit {
+  border-color: #1c4f95;
+  color: #1c4f95;
+  background: #ffffff;
+}
+
+/* Dark theme overrides */
+body.theme-dark {
+  --bg-base: #0e1f3d;
+  --bg-deep: #09152b;
+  --theme-overlay-rgb: 7, 24, 52;
+  --text: #ffffff;
+  --muted: #d6e1f2;
+  --card: #17335f;
+}
+
+body.theme-dark .site-header {
+  background: rgba(12, 30, 58, 0.94);
+  border-bottom-color: rgba(255, 255, 255, 0.14);
+}
+
+body.theme-dark .main-nav a,
+body.theme-dark .theme-toggle-btn,
+body.theme-dark .contact-btn,
+body.theme-dark .menu-btn {
+  color: #ffffff;
+}
+
+body.theme-dark .theme-toggle-btn {
+  border-color: rgba(255, 255, 255, 0.45);
+  background: transparent;
+}
+
+body.theme-dark .search-icon {
+  border-color: #ffffff;
+}
+
+body.theme-dark .search-icon::after {
+  background: #ffffff;
+}
+
+body.theme-dark .contact-btn,
+body.theme-dark .learn-btn,
+body.theme-dark .service-btn,
+body.theme-dark .partners-btn,
+body.theme-dark .innovate-submit {
+  border-color: rgba(255, 255, 255, 0.9);
+  color: #ffffff;
+  background: transparent;
+}
+
+body.theme-dark .mega-nav {
+  background:
+    radial-gradient(circle at 12% 35%, rgba(42, 122, 188, 0.2), transparent 34%),
+    radial-gradient(circle at 18% 12%, rgba(198, 63, 54, 0.12), transparent 30%),
+    radial-gradient(circle at 82% 52%, rgba(25, 84, 150, 0.18), transparent 37%),
+    rgba(11, 33, 66, 0.78);
+  border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+body.theme-dark .mega-col p,
+body.theme-dark .featured-copy p,
+body.theme-dark .services-intro,
+body.theme-dark .partners-intro,
+body.theme-dark .partner-card p,
+body.theme-dark .service-content p,
+body.theme-dark .service-offerings li,
+body.theme-dark .consent-copy,
+body.theme-dark .footer-phone,
+body.theme-dark .footer-legal {
+  color: #d6e1f2;
+}
+
+body.theme-dark .mega-feature-title,
+body.theme-dark .mega-col h3,
+body.theme-dark .mega-col li a,
+body.theme-dark .featured-copy h3,
+body.theme-dark .insight-card h4,
+body.theme-dark .services-results h2,
+body.theme-dark .service-head h3,
+body.theme-dark .service-offerings h4,
+body.theme-dark .partners h2,
+body.theme-dark .partner-logo,
+body.theme-dark .innovate-toggle,
+body.theme-dark .innovate-testimonial > p,
+body.theme-dark .author-block h3,
+body.theme-dark .author-brand,
+body.theme-dark .footer-links a,
+body.theme-dark .footer-regions a,
+body.theme-dark .footer-legal a,
+body.theme-dark .footer-brandline {
+  color: #ffffff;
+}
+
+body.theme-dark .clients,
+body.theme-dark .services-results,
+body.theme-dark .innovate-contact,
+body.theme-dark .footer-top {
+  background: #13284f;
+}
+
+body.theme-dark .industry-showcase,
+body.theme-dark .partners {
+  background: #10264b;
+}
+
+body.theme-dark .footer-bottom {
+  background: #0f2344;
+}
+
+body.theme-dark .industry-tabs,
+body.theme-dark .services-list,
+body.theme-dark .service-item,
+body.theme-dark .footer-divider {
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+body.theme-dark .industry-tab {
+  color: rgba(237, 230, 255, 0.74);
+}
+
+body.theme-dark .industry-tab.active {
+  color: #ffffff;
+}
+
+body.theme-dark .industry-tab::after {
+  background: #ffffff;
+}
+
+body.theme-dark .footer-social a {
+  color: #d3deed;
+}
 

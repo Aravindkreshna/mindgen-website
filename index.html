@@ -12,7 +12,7 @@
 <body>
   <header class="site-header-wrap">
     <div class="site-header">
-      <a href="#" class="brand" aria-label="MindGen Home"><img src="assets/images/mindgen-logo.svg" alt="MindGen logo" class="brand-logo" /></a>
+      <a href="#" class="brand" aria-label="MindGen Home"><img src="assets/images/mindgen-logo.svg" alt="MindGen logo" class="brand-logo" data-light-logo="assets/images/mindgen-logo.svg" data-dark-logo="assets/images/mindgen-logo-dark.svg" /></a>
       <nav class="main-nav" aria-label="Main navigation">
         <a href="#" class="has-mega" data-mega-target="whatwedo">What We Do</a>
         <a href="#" class="has-mega nav-industries-link" data-mega-target="industries">Industries We Serve</a>
@@ -21,6 +21,7 @@
         <a href="#">Who We Are</a>
       </nav>
       <div class="header-actions">
+        <button id="themeToggle" class="theme-toggle-btn" type="button" aria-label="Switch to dark mode" aria-pressed="false">Dark</button>
         <button class="icon-btn icon-btn-search" aria-label="Search">
           <span class="search-icon"></span>
         </button>
@@ -577,7 +578,7 @@
   <footer class="site-footer" aria-label="Footer">
     <div class="footer-top">
       <div class="footer-container">
-        <div class="footer-brandline"><img src="assets/images/mindgen-logo.svg" alt="MindGen logo" class="footer-logo" /></div>
+        <div class="footer-brandline"><img src="assets/images/mindgen-logo.svg" alt="MindGen logo" class="footer-logo" data-light-logo="assets/images/mindgen-logo.svg" data-dark-logo="assets/images/mindgen-logo-dark.svg" /></div>
 
         <nav class="footer-links" aria-label="Footer primary">
           <a href="#">Co-Innovation</a>
@@ -658,4 +659,3 @@
   <script src="assets/js/script.js"></script>
 </body>
 </html>
-
