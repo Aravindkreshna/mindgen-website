@@ -1,12 +1,15 @@
 :root {
-  --bg-base: #2c207a;
-  --bg-deep: #120b46;
-  --theme-overlay-rgb: 53, 41, 127;
-  --violet: #6d2dad;
-  --violet-soft: #4f3fa6;
+  --bg-base: #0e1f3d;
+  --bg-deep: #09152b;
+  --theme-overlay-rgb: 7, 24, 52;
+  --brand-navy: #182547;
+  --brand-blue: #39a7e6;
+  --brand-red: #c63f36;
+  --violet: #1c4f95;
+  --violet-soft: #1a3d73;
   --text: #ffffff;
-  --muted: #e6ddff;
-  --card: #3f328e;
+  --muted: #d6e1f2;
+  --card: #17335f;
   --section-py-desktop: 84px;
   --section-py-tablet: 64px;
   --section-py-mobile: 52px;
@@ -43,15 +46,25 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 16px 18px 14px;
-  background: rgba(50, 29, 119, 0.94);
+  background: rgba(12, 30, 58, 0.94);
   backdrop-filter: blur(4px);
 }
 
 .brand {
-  font-size: 17px;
-  font-weight: 700;
-  letter-spacing: 0.2px;
-  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  line-height: 0;
+  width: 220px;
+  overflow: visible;
+}
+
+.brand-logo {
+  display: block;
+  width: 220px;
+  height: 56px;
+  object-fit: contain;
+  object-position: left center;
 }
 
 .main-nav {
@@ -70,7 +83,7 @@ body {
 
 .main-nav a:hover,
 .main-nav a.is-active {
-  color: #83e9ff;
+  color: var(--brand-blue);
   opacity: 1;
 }
 
@@ -134,9 +147,10 @@ body {
 .mega-nav {
   display: none;
   background:
-    radial-gradient(circle at 12% 35%, rgba(140, 115, 228, 0.22), transparent 34%),
-    radial-gradient(circle at 82% 52%, rgba(132, 104, 220, 0.2), transparent 37%),
-    rgba(48, 27, 116, 0.74);
+    radial-gradient(circle at 12% 35%, rgba(42, 122, 188, 0.20), transparent 34%),
+    radial-gradient(circle at 18% 12%, rgba(198, 63, 54, 0.12), transparent 30%),
+    radial-gradient(circle at 82% 52%, rgba(25, 84, 150, 0.18), transparent 37%),
+    rgba(11, 33, 66, 0.78);
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   -webkit-backdrop-filter: blur(18px) saturate(135%);
   backdrop-filter: blur(18px) saturate(135%);
@@ -194,7 +208,7 @@ body {
 }
 
 .mega-feature:hover .mega-feature-title {
-  color: #85ebff;
+  color: #39a7e6;
   transform: translateX(16px);
 }
 
@@ -222,7 +236,7 @@ body {
 }
 
 .mega-col li a:hover {
-  color: #8cecff;
+  color: #39a7e6;
 }
 
 .industries-mega-inner {
@@ -251,14 +265,14 @@ body {
   top: 50%;
   transform: translate(-6px, -50%);
   opacity: 0;
-  color: #85ebff;
+  color: #39a7e6;
   font-size: 18px;
   line-height: 1;
   transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .industries-link:hover {
-  color: #85ebff;
+  color: #39a7e6;
   transform: translateX(14px);
 }
 
@@ -294,7 +308,7 @@ body {
   top: 10px;
   left: 10px;
   background: #ffffff;
-  color: #ad2ba9;
+  color: var(--brand-red);
   font-size: 13px;
   letter-spacing: 0.8px;
   font-weight: 700;
@@ -304,7 +318,7 @@ body {
 .work-card h4 {
   margin: 0;
   padding: 16px 24px 18px;
-  color: #30237f;
+  color: #182f59;
   font-size: 17px;
   line-height: 1.25;
   font-weight: 500;
@@ -378,7 +392,7 @@ body {
 }
 
 .clients {
-  background: #332889;
+  background: #13284f;
   padding: 32px 0 18px;
 }
 
@@ -420,7 +434,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(53, 41, 127, 0.7);
+  background: rgba(7, 24, 52, 0.7);
 }
 
 .logo-card::after {
@@ -467,7 +481,7 @@ body {
 }
 
 .industry-showcase {
-  background: #332889;
+  background: #10264b;
   padding: var(--section-py-desktop) 0;
 }
 
@@ -505,7 +519,7 @@ body {
   transform: translateY(-50%);
   border: none;
   background: transparent;
-  color: #6fd7f4;
+  color: #39a7e6;
   font-size: 28px;
   line-height: 1;
   padding: 0;
@@ -606,7 +620,7 @@ body {
   font-size: 20px;
   font-weight: 700;
   line-height: 1;
-  color: #8beafc;
+  color: #39a7e6;
 }
 
 .featured-copy h3 {
@@ -672,7 +686,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(35, 17, 92, 0.16), rgba(35, 17, 92, 0.35));
+  background: linear-gradient(180deg, rgba(15, 40, 76, 0.18), rgba(15, 40, 76, 0.42));
   transition: background 0.25s ease, box-shadow 0.25s ease;
 }
 
@@ -682,7 +696,7 @@ body {
   left: 8px;
   z-index: 1;
   background: #ffffff;
-  color: #af46cb;
+  color: var(--brand-red);
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 0.5px;
@@ -705,7 +719,7 @@ body {
 }
 
 .insight-card:hover .insight-image-wrap::after {
-  background: rgba(53, 41, 127, 0.7);
+  background: rgba(7, 24, 52, 0.7);
   box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.28);
 }
 
@@ -716,7 +730,7 @@ body {
 }
 
 .insight-card:hover h4 {
-  color: #35297f;
+  color: #1d3b70;
   background: #ffffff;
   text-shadow: none;
   display: inline;
@@ -726,7 +740,7 @@ body {
 }
 
 .services-results {
-  background: #332889;
+  background: #13284f;
   padding: var(--section-py-desktop) 0;
 }
 
@@ -747,7 +761,7 @@ body {
   margin: 22px auto 0;
   max-width: 980px;
   text-align: center;
-  color: #dfd6ff;
+  color: #d3def0;
   font-size: clamp(13px, 1vw, 20px);
   line-height: 1.45;
 }
@@ -810,8 +824,8 @@ body {
   top: 8px;
   width: 12px;
   height: 12px;
-  border-right: 2px solid #7de7ff;
-  border-bottom: 2px solid #7de7ff;
+  border-right: 2px solid #39a7e6;
+  border-bottom: 2px solid #39a7e6;
   background: transparent;
 }
 
@@ -831,7 +845,7 @@ body {
 .service-content p {
   margin: 14px 0 0;
   max-width: 880px;
-  color: #ece5ff;
+  color: #dce5f3;
   font-size: clamp(15px, 1.15vw, 21px);
   line-height: 1.45;
 }
@@ -863,7 +877,7 @@ body {
   margin: 0;
   font-size: 34px;
   line-height: 1.2;
-  color: #7de7ff;
+  color: #39a7e6;
   font-weight: 600;
 }
 
@@ -877,14 +891,14 @@ body {
 }
 
 .service-offerings li {
-  color: #f2ecff;
+  color: #e3ebf7;
   font-size: clamp(14px, 1vw, 18px);
   line-height: 1.35;
   font-weight: 500;
 }
 
 .partners {
-  background: #332889;
+  background: #10264b;
   padding: var(--section-py-desktop) 0;
 }
 
@@ -905,7 +919,7 @@ body {
   margin: 22px auto 0;
   max-width: 900px;
   text-align: center;
-  color: #e7ddff;
+  color: #d4deef;
   font-size: clamp(17px, 1.2vw, 24px);
   line-height: 1.45;
 }
@@ -936,7 +950,7 @@ body {
 
 .partner-card p {
   margin: 22px 0 0;
-  color: #ece5ff;
+  color: #dce5f3;
   font-size: clamp(15px, 1vw, 20px);
   line-height: 1.4;
   min-height: 54px;
@@ -958,7 +972,7 @@ body {
 }
 
 .innovate-contact {
-  background: #332889;
+  background: #13284f;
   padding: 84px 0 92px;
 }
 
@@ -1001,8 +1015,8 @@ body {
   width: 20px;
   height: 20px;
   margin-left: 12px;
-  border-left: 3px solid #78e8ff;
-  border-top: 3px solid #78e8ff;
+  border-left: 3px solid #39a7e6;
+  border-top: 3px solid #39a7e6;
   transform: rotate(45deg) translateY(2px);
   transition: transform 0.22s ease;
 }
@@ -1051,7 +1065,7 @@ body {
 
 .author-block p {
   margin: 8px 0 0;
-  color: #7de7ff;
+  color: #39a7e6;
   font-size: clamp(14px, 0.95vw, 18px);
   font-weight: 600;
 }
@@ -1080,7 +1094,7 @@ body {
   height: 48px;
   border: none;
   outline: none;
-  background: rgba(137, 126, 196, 0.58);
+  background: rgba(35, 66, 121, 0.58);
   color: #ffffff;
   padding: 0 12px;
   font-size: 15px;
@@ -1120,10 +1134,10 @@ body {
   margin-top: 26px;
   width: min(100%, 260px);
   align-self: center;
-  border: 2px solid #7de7ff;
+  border: 2px solid #39a7e6;
   border-radius: 999px;
   background: transparent;
-  color: #7de7ff;
+  color: #39a7e6;
   padding: 10px 16px;
   font-size: 28px;
   font-weight: 800;
@@ -1132,24 +1146,24 @@ body {
 
 .consent-copy {
   margin: 14px 0 0;
-  color: #ece7ff;
+  color: #dce6f4;
   font-size: clamp(12px, 0.82vw, 14px);
   line-height: 1.35;
 }
 
 .consent-copy a {
-  color: #9ceeff;
+  color: #39a7e6;
   font-weight: 700;
   text-decoration: underline;
 }
 
 .site-footer {
   color: #ffffff;
-  background: #2a0a86;
+  background: #0b1d3a;
 }
 
 .footer-top {
-  background: #3b0a88;
+  background: #10264b;
   padding: 42px 0 34px;
 }
 
@@ -1190,7 +1204,7 @@ body {
 
 .footer-phone {
   font-size: 17px;
-  color: #efe9ff;
+  color: #d9e2f0;
   letter-spacing: 0.25px;
 }
 
@@ -1201,7 +1215,7 @@ body {
 }
 
 .footer-social a {
-  color: #e9e1ff;
+  color: #d3deed;
   text-decoration: none;
   line-height: 1;
   min-width: 14px;
@@ -1244,40 +1258,53 @@ body {
 }
 
 .footer-bottom {
-  background: #2f276f;
+  background: #0f2344;
   padding: 20px 0;
 }
 
 .footer-bottom-inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 18px 30px;
 }
 
 .footer-brandline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
   font-size: 18px;
   line-height: 1.2;
   color: #ffffff;
   white-space: nowrap;
   font-weight: 700;
   letter-spacing: 0.2px;
+  margin: 0 auto 26px;
 }
 
-.footer-brandline span {
+.footer-logo {
+  width: 220px;
+  height: 56px;
+  object-fit: contain;
+  object-position: left center;
+  border-radius: 4px;
+}
+
+.footer-brand-separator {
   opacity: 0.5;
-  margin: 0 8px;
+  margin: 0 2px;
 }
 
 .footer-legal {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   gap: 8px 12px;
   font-size: 14px;
   font-weight: 500;
-  color: #f0ebff;
+  color: #dce6f3;
   letter-spacing: 0.2px;
 }
 
@@ -1285,6 +1312,16 @@ body {
   content: "|";
   margin-right: 12px;
   opacity: 0.6;
+}
+
+.contact-btn:hover,
+.learn-btn:hover,
+.service-btn:hover,
+.partners-btn:hover,
+.innovate-submit:hover {
+  border-color: var(--brand-blue);
+  background: var(--brand-blue);
+  color: #ffffff;
 }
 
 .innovate-contact.is-collapsed {
@@ -1318,8 +1355,9 @@ body {
     font-size: 13px;
   }
 
-  .brand {
-    font-size: 16px;
+  .brand-logo {
+    width: 200px;
+    height: 52px;
   }
 
   .mega-nav-inner {
@@ -1676,6 +1714,11 @@ body {
     white-space: normal;
   }
 
+  .footer-logo {
+    width: 180px;
+    height: 48px;
+  }
+
   .footer-legal {
     justify-content: flex-start;
     font-size: 11px;
@@ -1688,10 +1731,13 @@ body {
   }
 
   .brand {
-    font-size: 18px;
-    max-width: 45vw;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    width: 160px;
+    max-width: 48vw;
+  }
+
+  .brand-logo {
+    width: 160px;
+    height: 44px;
   }
 
   .contact-btn,
@@ -1779,7 +1825,7 @@ body {
   .pause-mark-mobile {
     font-size: 52px;
     line-height: 1;
-    color: #7de6ff;
+    color: #39a7e6;
     font-weight: 700;
   }
 
@@ -2099,6 +2145,11 @@ body {
     font-size: 13px;
   }
 
+  .footer-logo {
+    width: 150px;
+    height: 40px;
+  }
+
   .footer-legal {
     gap: 8px 10px;
     font-size: 10px;
@@ -2108,4 +2159,6 @@ body {
     margin-right: 10px;
   }
 }
+
+
 
