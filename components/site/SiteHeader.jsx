@@ -22,7 +22,8 @@ export default function SiteHeader() {
             Our Work
           </a>
           <a href="#">Thought Leadership</a>
-          <a href="#">Who We Are</a>
+          <a href="/about-us">About Us</a>
+          <a href="/careers">Careers</a>
         </nav>
         <div className="header-actions">
           <button
@@ -37,7 +38,7 @@ export default function SiteHeader() {
           <button className="icon-btn icon-btn-search" aria-label="Search">
             <span className="search-icon"></span>
           </button>
-          <button className="contact-btn">CONTACT US</button>
+          <a href="/contact-us" className="contact-btn">CONTACT US</a>
           <button className="menu-btn" aria-label="Open menu" aria-expanded="false">
             Menu
           </button>

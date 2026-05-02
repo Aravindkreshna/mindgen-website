@@ -20,9 +20,9 @@ export default function SiteFooter() {
             <a href="#">Training</a>
             <a href="#">Perspectives</a>
             <a href="#">Events</a>
-            <a href="#">About</a>
-            <a href="#">Careers</a>
-            <a href="/#contact">Contact</a>
+            <a href="/about-us">About</a>
+            <a href="/careers">Careers</a>
+            <a href="/contact-us">Contact</a>
           </nav>
 
           <div className="footer-contact-row">
@@ -65,12 +65,8 @@ export default function SiteFooter() {
           <div className="footer-divider"></div>
 
           <nav className="footer-regions" aria-label="Regions">
-            <a href="#">United States</a>
-            <a href="#">Europe</a>
-            <a href="#">Canada</a>
-            <a href="#">India</a>
-            <a href="#">Mexico</a>
-            <a href="#">Singapore</a>
+            <a href="#">Chennai</a>
+            <a href="#">Mumbai</a>
           </nav>
         </div>
       </div>

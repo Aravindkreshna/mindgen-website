@@ -3,8 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "clean": "node -e \"require('fs').rmSync('.next', { recursive: true, force: true })\"",
-    "predev": "npm run clean",
+    "clean": "node -e \"const fs=require('fs');['.next','.next-dev'].forEach((dir)=>fs.rmSync(dir,{ recursive: true, force: true }))\"",
     "prebuild": "npm run clean",
     "prestart": "npm run build",
     "dev": "next dev",
